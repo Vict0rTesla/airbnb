@@ -3,15 +3,17 @@
   <div class="col-8 offset-2">
     <br>
     <h3>Create a new listing</h3>
-    <form method='POST' action='/listings/create'>
+    <form method='POST' action='/listings/create' novalidate class="needs-validation">
       <div class="mb-3">
         <label for="title" class="form-lable">Title</label>
-        <input type="text" name='Listing[title]' placeholder="enter Title" class="form-control">
+        <input required type="text" name='Listing[title]' placeholder="enter Title" class="form-control">
+        <div class="invalid-feedback">Please enter a valid Title</div>
       </div>
 
       <div class="mb-3">
         <label for="description" class="form-lable">Description</label>
-        <textarea name='Listing[description]' class="form-control"></textarea>
+        <textarea required name='Listing[description]' class="form-control"></textarea>
+        <div class="invalid-feedback">Please enter a valid Descriptiron</div>
       </div>
 
       <div class="mb-3">
@@ -21,18 +23,21 @@
       <div class="row">
         <div class="mb-3 col-md-4">
           <label for="price" class="form-lable">Price</label>
-          <input type="text" name='Listing[price]' class="form-control" placeholder="&#8377 <%= (1000).toLocaleString('en-IN') %>">
+          <input required type="text" name='Listing[price]' class="form-control" placeholder="&#8377 <%= (1200).toLocaleString('en-IN') %>">
+          <div class="invalid-feedback">Please enter a valid Price</div>
         </div>
 
         <div class="mb-3 col-md-8">
           <label for="country" class="form-lable">Country</label>
-          <input type="text" name='Listing[country]' class="form-control" placeholder="India">
+          <input required type="text" name='Listing[country]' class="form-control" placeholder="India">
+          <div class="invalid-feedback">Please enter a valid country</div>
         </div>
       </div>
 
       <div class="mb-3">
         <label for="location" class="form-lable">Location</label>
-        <input type="text" name='Listing[location]' class="form-control" placeholder="Jaipur, Rajasthan">
+        <input required type="text" name='Listing[location]' class="form-control" placeholder="Jaipur, Rajasthan">
+        <div class="invalid-feedback">Please enter a valid location</div>
       </div>
 
       <br>

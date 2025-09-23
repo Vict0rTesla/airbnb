@@ -41,25 +41,21 @@ module.exports.isReviewAuthor = async (req, res, next) => {
 }
 
 module.exports.validateListing = (req, res, next) => {
-  const validateListing = (req, res, next) => {
-    let { error } = listingSchema.validate(req.body);
-    if (error) {
-      throw new ExpressError(400, error)
-    } else {
-      next();
-    }
+  let { error } = listingSchema.validate(req.body);
+  if (error) {
+    throw new ExpressError(400, error)
+  } else {
+    next();
   }
   next()
 }
 
 module.exports.validateReview = (req, res, next) => {
-  const validateReview = (req, res, next) => {
-    let { error } = reviewSchema.validate(req.body);
-    if (error) {
-      throw new ExpressError(400, error)
-    } else {
-      next();
-    }
+  let { error } = reviewSchema.validate(req.body);
+  if (error) {
+    throw new ExpressError(400, error)
+  } else {
+    next();
   }
   next()
 }

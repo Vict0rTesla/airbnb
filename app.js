@@ -1,3 +1,7 @@
+if (process.env.NODE_ENV != "production") {
+  require("dotenv").config()
+}
+
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
@@ -14,7 +18,9 @@ const listingRouter = require('./routes/listing.js');
 const reviewRouter = require('./routes/review.js');
 const userRouter = require('./routes/user.js');
 
-const MONGO_URL = "mongodb://127.0.0.1:27017/airbnb";
+// const MONGO_URL = "mongodb://127.0.0.1:27017/airbnb";
+const MONGO_URL = process.env.ATLUSDB_URL
+
 main()
   .then(() => {
     console.log('connected to DB');
